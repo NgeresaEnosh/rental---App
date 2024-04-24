@@ -8,17 +8,17 @@
     android:background="@color/blue"
     tools:context=".MainActivity">
 
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/signin"
-    android:text="Sign In"
-    android:textColor="@color/white"
-    android:textSize="40dp"
-    android:layout_marginTop="50dp"
-    android:gravity="center"
-    android:textStyle="bold"
-    />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/signin"
+        android:text="Sign In"
+        android:textColor="@color/white"
+        android:textSize="40dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -73,37 +73,20 @@
         android:textSize="25dp"
         android:textColor="@color/gray"
         android:textStyle="bold"/>
+
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/others"
-        android:text="Or SigIn With"
-        android:layout_above="@+id/socialicons"
-        android:textSize="30dp"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/green"
-        android:layout_centerHorizontal="true"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/socialicons"
-        android:gravity="center">
+        android:id="@+id/reset"
+        android:layout_below="@+id/forgotpass"
+        android:text="Reset Password"
+        android:background="#30ffff"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:textSize="25dp"
+        android:textColor="@color/gray"
+        android:textStyle="bold"/>
 
-        <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_margin="20dp"
-            android:layout_gravity="center"
-            android:src="@drawable/chrome"
-            android:gravity="center" />
-        <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_margin="20dp"
-            android:layout_gravity="center"
-            android:src="@drawable/facebook"
-            android:gravity="center" />
 
-    </LinearLayout>
+
 </RelativeLayout>
