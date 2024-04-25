@@ -1,85 +1,66 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#F1CA06"
-    tools:context=".HomeActivity"
-    tools:ignore="ExtraText">
+package com.example.rental;
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:layout_centerHorizontal="true"
-        android:text="Rental APP"
-        android:textSize="50dp"
-        android:textStyle="bold" />
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.CheckBox;
 
-    <TextView
-        android:id="@+id/welcome_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
-        android:gravity="center"
-        android:layout_marginLeft="10dp"
-        android:textColor="@color/black"
-        android:text="\n Welcome home our  tenants!"
-        android:textSize="25dp"  />
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
-    <TextView
-        android:id="@+id/condition_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/welcome_text"
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:layout_marginLeft="10dp"
-        android:text="\nAgree to our terms and conditions \n by checking the checkbox"
-        android:textSize="20dp"  />
-    <CheckBox
-        android:id="@+id/term2_checkbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/condition_text"
-        android:layout_alignLeft="@+id/condition_text"
-        android:textSize="20dp"
-        android:textColor="@color/black"
-        android:text="\n\nYou shall be reponsible for every property inside on the behave of Rental management system" />
+public class MainActivity extends AppCompatActivity {
+    Button btncontinue;
+    CheckBox box1, box2, box3;
 
-    <CheckBox
-        android:id="@+id/term3_checkbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/term2_checkbox"
-        android:layout_alignLeft="@+id/condition_text"
-        android:textSize="20dp"
-        android:textColor="@color/black"
-        android:text="\n \nYour rights shall be uphold by the company" />
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        EdgeToEdge.enable(this);
+//        setContentView(R.layout.activity_main);
+//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+//            return insets;
+//        });
+//    }
 
-    <CheckBox
-        android:id="@+id/terms_checkbox"
-        android:layout_width="wrap_content"
-        android:textColor="@color/black"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/term3_checkbox"
-        android:layout_alignLeft="@+id/condition_text"
-        android:textSize="20dp"
-        android:text="\n\nI Agree" />
-    <Button
-        android:id="@+id/continue_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/terms_checkbox"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="@color/green"
-        android:text="Continue"
-        android:textStyle="bold"
-        />
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main); // Ensure correct layout file is inflated
+        // Initialize CheckBoxes
+        box1 = findViewById(R.id.terms_checkbox);
+        box2 = findViewById(R.id.term2_checkbox);
+        box3 = findViewById(R.id.term3_checkbox);
+        btncontinue = findViewById(R.id.continue_button);
 
-</RelativeLayout>
+        // Set OnCheckedChangeListener for each CheckBox
+        box1.setOnCheckedChangeListener((buttonView, isChecked) -> updateContinueButtonVisibility());
+        box2.setOnCheckedChangeListener((buttonView, isChecked) -> updateContinueButtonVisibility());
+        box3.setOnCheckedChangeListener((buttonView, isChecked) -> updateContinueButtonVisibility());
+
+        // Additional code for handling window insets (optional)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(android.R.id.content), (v, insets) -> {
+            v.setPadding(insets.getSystemWindowInsetLeft(), insets.getSystemWindowInsetTop(), insets.getSystemWindowInsetRight(), insets.getSystemWindowInsetBottom());
+            return insets.consumeSystemWindowInsets();
+        });
+    }
+
+    // Method to update visibility of Continue button based on checkbox states
+    private void updateContinueButtonVisibility() {
+        if (box1.isChecked() && box2.isChecked() && box3.isChecked()) {
+            btncontinue.setEnabled(true);
+            btncontinue.setOnClickListener(v -> {
+                Intent intent = new Intent(MainActivity.this,HomeActivity.class );
+                startActivity(intent);
+                finish();
+            });
+        } else {
+            btncontinue.setEnabled(false);
+        }
+    }
+
+}
