@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RestActivity2">
+    tools:context=".RepairActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -32,10 +32,14 @@
         android:id="@+id/btnElectricity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/blue"
         android:layout_below="@+id/selectrepair"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:text="Electricity Repair"
-        android:textSize="20dp"
-        android:layout_margin="20dp"/>
+        android:textSize="20dp" />
 
     <Button
         android:id="@+id/btnWater"
@@ -43,6 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/btnElectricity"
         android:text="Water Repair"
+        android:backgroundTint="@color/blue"
         android:textSize="20dp"
         android:layout_margin="20dp"/>
     <Button
@@ -51,6 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/btnWater"
         android:text="House Renovation"
+        android:backgroundTint="@color/blue"
         android:textSize="20dp"
         android:layout_margin="20dp"/>
 
@@ -80,7 +86,19 @@
         android:layout_below="@id/descriptionCardView"
         android:layout_centerHorizontal="true"
         android:text="Save"
+        android:backgroundTint="@color/blue"
         android:textSize="20sp"
         android:layout_marginTop="20dp"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomnavigator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itemBackground="@color/blue"
+        android:layout_alignParentBottom="true"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@color/white"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/menu" />
 
 </RelativeLayout>
