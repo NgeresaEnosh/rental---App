@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#07AD1D"
+    tools:context=".Profile">
+
+    <ImageView
+        android:id="@+id/profileImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/profileuser"
+        android:background="@drawable/circle_background"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="24dp"/>
+
+    <Button
+        android:id="@+id/changePhotoButton"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/blue"
+        android:text="Change Photo"
+        android:layout_below="@id/profileImage"
+        android:layout_marginTop="16dp"/>
+
+
+    <EditText
+        android:id="@+id/profilenameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/changePhotoButton"
+        android:hint="Name"
+        android:textColor="@color/white"
+        android:inputType="textPersonName"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/profileemailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profilenameEditText"
+        android:hint="Email"
+        android:textColor="@color/white"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="8dp"/>
+
+    <EditText
+        android:id="@+id/profilephoneEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profileemailEditText"
+        android:hint="Phone"
+        android:textColor="@color/white"
+        android:inputType="phone"
+        android:layout_marginTop="8dp"/>
+
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:backgroundTint="@color/blue"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:layout_below="@id/profilephoneEditText"
+        android:layout_marginTop="80dp"/>
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottomnavigator"
+        app:itemBackground="@color/blue"
+        app:itemTextColor="@color/white"
+        app:itemIconTint="#0FF12D"
+        app:menu="@menu/menu"
+        app:labelVisibilityMode="labeled"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
