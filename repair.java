@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -70,6 +71,9 @@ public class RestActivity2 extends AppCompatActivity {
                 // Perform save operation here
                 // Once saved, reset button colors
                 resetButtonColors();
+
+                // Show a toast message indicating successful save
+                showToast("Saved successfully");
             }
         });
     }
@@ -84,5 +88,10 @@ public class RestActivity2 extends AppCompatActivity {
         btnElectricity.setBackgroundColor(Color.TRANSPARENT);
         btnWater.setBackgroundColor(Color.TRANSPARENT);
         btnHouseRenovation.setBackgroundColor(Color.TRANSPARENT);
+    }
+
+    // Method to show a toast message
+    private void showToast(String message) {
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
 }
